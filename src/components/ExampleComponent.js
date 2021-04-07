@@ -1,4 +1,4 @@
-import React, { useContext, memo } from 'react';
+import React, { memo } from 'react';
 import { d } from '../App'
 
 export const ExampleComponent = memo(({ text1 }) => {

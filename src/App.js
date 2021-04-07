@@ -10,9 +10,12 @@ export let d = (type, args = {}) => {
   _d({...args, type})
 }
 
+window.d = d
+
 function App() {
   let { state, dispatch } = useContext(store)
   _d = dispatch;
+  window.state = state
   return (
     <div className="App">
       <Home state={state} />
