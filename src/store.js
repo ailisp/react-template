@@ -3,7 +3,9 @@ import React, { createContext, useReducer } from 'react';
 import * as events from './events';
 import {Map, List} from 'immutable'
 
-const initialState = Map({text1: 'aaa', text2: 'bbb'})
+const initialState = Map({
+    text1: 'aaa', text2: 'bbb', path: window.location.pathname
+})
 export const store = createContext(initialState);
 const { Provider } = store;
 
