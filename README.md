@@ -8,3 +8,5 @@ React is considerably more lengthy, less performant and state management is pain
 - Every component is fully depend on the props pass to it, no local state, very easy to test them.
 - Props passed to components are partial of the global state
 - State is `Map` and `List` from immutable.js, you can easilly update or access a nested prop with `setIn` and `getIn`
+
+This template should be easy to apply in react-native and react-nodegui for mobile and desktop development, but I haven't make a out of box template in this repo yet.
