@@ -26,6 +26,13 @@ r # refresh android app
 # or scan the qr code printed in console to run app on your iOS and Android device
 ```
 
+- Set initial state in `store.js`
+- To add a new page or component: goto `pages/` and `components/` and add. Every component is purely functionaly, only takes props and should be wrap with `memo`. If it need state, pass state as prop. It is not recommended to have any local state component but it's possible to do.
+- To add a new event, add or import in `events/index.js`. Function name is event name. Event function should take one object as event argument. Event can dispatch other event and should the new state. To change one part of state and keeping th rest, use immutable.js `setIn`.
+- To dispatch a event, use `d('eventName', {eventArg1: '...', eventArg2: '...'})`
+- To use router, use `d('goPath', {path: '/some/path'})`
+- To debug and reproduce app ui in browser, get and change state in browser console with `state` and `setState`. It will fully reproduce the UI given the state as long as you don't have any local state component.
+
 ## Getting the most benefit from this template
 
 This template structure assume you have experience in using one of apprun, elm, imba or re-frame and have basic knowledge of react-native. In case you're not, it's recommended to follow one of this tutorial:
