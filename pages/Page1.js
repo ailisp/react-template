@@ -1,4 +1,5 @@
 import { d } from '../App'
+import React from 'react'
 
 export const Page1 = ({ state }) => {
   return (

@@ -2,11 +2,12 @@
 import React, { createContext, useReducer } from 'react'
 import * as events from './events'
 import { Map, List } from 'immutable'
+import { Platform } from 'react-native'
 
 const initialState = Map({
   text1: 'aaa',
   text2: 'bbb',
-  path: window.location.pathname,
+  path: Platform.OS == 'web' ? window.location.pathname : '/',
 })
 export const store = createContext(initialState)
 const { Provider } = store
