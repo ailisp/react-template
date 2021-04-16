@@ -1,4 +1,4 @@
-import { d } from '../App'
+import { d } from '../store'
 import { Platform } from 'react-native'
 
 export const toplevelEvent1 = (state, _args) => {

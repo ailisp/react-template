@@ -1,22 +1,18 @@
 import React, { memo } from 'react'
-import { d } from '../App'
+import { d } from '../store'
+import { Button, Text, View } from 'react-native'
 
 export const ExampleComponent = memo(({ text1 }) => {
   console.log('enter ExampleComponent')
   return (
-    <div>
-      <p>{text1}</p>
-      <button onClick={() => d('toplevelEvent1')}>click</button>
-    </div>
+    <View>
+      <Text>{text1}</Text>
+      <Button onPress={() => d('toplevelEvent1')} title="click" />
+    </View>
   )
-})
-
-export const ViewComponent = memo(({ text2 }) => {
-  console.log('enter ViewComponent')
-  return <p>{text2}</p>
 })
 
 export const ConstComponent = memo(() => {
   console.log('enter ConstComponent')
-  return <p>{'bbb'}</p>
+  return <Text>{'bbb'}</Text>
 })
