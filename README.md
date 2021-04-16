@@ -1,6 +1,6 @@
-# Write React Native like apprun, elm and re-frame
+# Write React Native like apprun, elm, imba or re-frame
 
-React is considerably more lengthy, less performant and state management is painful compare to apprun, elm or re-frame. If you have used any of them, you know what I'm saying. If you haven't, take a look at https://medium.com/dailyjs/a-realworld-comparison-of-front-end-frameworks-2020-4e50655fe4c1 to see how much performance increase and less code it takes in apprun and re-frame vs react. In general it'll save 50% of the code compare to react-redux and more for vanilla react with hooks.
+React is considerably more lengthy, less performant and state management is painful compare to apprun, elm, imba or re-frame. If you have used any of them, you know what I'm saying. If you haven't, take a look at https://medium.com/dailyjs/a-realworld-comparison-of-front-end-frameworks-2020-4e50655fe4c1 to see how much performance increase and less code it takes in apprun and re-frame. It will take more code than imba, but the advantage is it's still JavaScript. In general it'll save 50% of the code compare to react-redux and more for vanilla react with hooks.
 However you have to use react for some project and for the sake of React Native, which are best of the type in sharing most of the base of logic and many of the UI with a Web App, a Mobile App and a Desktop App (with https://react.nodegui.org/ or https://microsoft.github.io/react-native-windows/). Then this template is for you. It gives you comparable performance in web vs apprun and even shorter lines of code vs apprun.
 
 ## Advantage
@@ -25,3 +25,23 @@ a # open android simulator
 r # refresh android app
 # or scan the qr code printed in console to run app on your iOS and Android device
 ```
+
+## Getting the most benefit from this template
+
+This template structure assume you have experience in using one of apprun, elm, imba or re-frame and have basic knowledge of react-native. In case you're not, it's recommended to follow one of this tutorial:
+
+- apprun: https://apprun.js.org/docs/
+- imba: https://imba.io/language/introduction
+- elm: https://guide.elm-lang.org/
+- re-frame: https://day8.github.io/re-frame/re-frame/
+
+Of this apprun is most recommended since it's in JavaScript and quickest to learn.
+Besides these, it's recommended to know a little of immutable.js, only this section should be sufficient: https://github.com/immutable-js/immutable-js#nested-structures. So you should always pass the required subset of state to pages and components, no more. Every component should be wrap with a `memo` since functional state comparison is fast, this would reduce all necessary render.
+
+Then if you haven't used react native before, you just need to know this very little to use react-native:
+
+- If you don't need mobile app part at all, you just write exactly same react code.
+- If you need mobile app, you have a few choices:
+  - only use react-native components, they can be rendered both on web and on mobile. The cons is you cannot use html elements, css but only react native stylesheets.
+  - create differnt version for component that look different on web and on mobile, example like `Page1.js`, `Page1.native.js` and also `components/ViewComponent`. When run and build it just automatically pick the right one for you. This is good if you want to reuse a lot of components and all of the logic, but want the web version looks like a professional web page and mobile version looks like a professional app. Note all html elements cannot be used in mobile.
+  - In any javascript file you want to check if it's run as mobile app or as web page, use `Platform.OS`, you can see it in some places in this template
